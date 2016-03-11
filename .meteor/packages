@@ -33,6 +33,3 @@ arillo:flow-router-helpers
 check
 
 ###  delete
-
-autopublish
-insecure

@@ -4872,6 +4872,10 @@ html.retina.ios-6 .message.message-pic img {
   }
 }
 /* === Statusbar overlay === */
+
+/* UGLY BUG ON METEOR 1.3 */
+
+/*
 html.with-statusbar-overlay body {
   padding-top: 20px;
   box-sizing: border-box;
@@ -4894,6 +4898,7 @@ html.with-statusbar-overlay body .panel {
   -webkit-transition-duration: 400ms;
   transition-duration: 400ms;
 }
+*/
 /* === Preloader === */
 .preloader {
   display: inline-block;

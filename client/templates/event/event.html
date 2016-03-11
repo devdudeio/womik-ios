@@ -1,0 +1,150 @@
+<template name="event">
+    <style>
+        .imageheader {
+            position: relative;
+        }
+
+        .imageheader .eventimage {
+            width: 100vw;
+        }
+
+        .imageheader .headertext {
+            position: absolute;
+            top: 130px;
+            left: 0;
+        }
+
+        .imageheader .subheadertext {
+            position: absolute;
+            top: 170px;
+            left: 0;
+        }
+
+        .imageheader .headertext span, .imageheader .subheadertext span {
+            color: white;
+            letter-spacing: -1px;
+            background: rgb(0, 0, 0); /* fallback color */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+
+        #map {
+            margin-top: 0px;
+            min-height: 350px;
+            height: 100%;
+            min-width: 100%;
+        }
+    </style>
+    <div class="statusbar-overlay"></div>
+    <div class="views">
+        <div class="view view-main">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="left">
+                        <a href="{{pathFor route='eventlist'}}" class="link">
+                            <i class="icon icon-back"></i>
+                            <span>Zurück</span>
+                        </a>
+                    </div>
+                    <div class="center sliding">{{event.title}}</div>
+                </div>
+            </div>
+            <div class="pages navbar-through toolbar-through">
+                <div data-page="index" class="page">
+                    <div class="page-content">
+                        {{#if Template.subscriptionsReady}}
+                            {{#with event}}
+                                {{#with getImage event.image_id}}
+                                    <section>
+                                        <div class="imageheader">
+                                            <img class="eventimage animated fadeIn" src="{{this.url store='default'}}">
+                                            <h3 class="headertext animated fadeInLeft"><span>{{event.title}}</span></h3>
+                                            <h3 class="subheadertext animated fadeInLeft"><span>{{event.vendor}}</span>
+                                            </h3>
+                                        </div>
+                                    </section>
+                                {{else}}
+                                    bild nicht gefunden
+                                {{/with}}
+                                <section>
+                                    <div class="content-block-title">Wann</div>
+                                    <div class="content-block" style="margin-bottom: 0;">
+                                        <div class="content-block-inner">
+                                            {{#if isSingleDayEvent event.begin event.end}}
+                                                <p>{{formatSingleDayEvent event.begin event.end}}</p>
+                                            {{else}}
+                                                <p>{{formatMultiDayEvent event.begin event.end}}</p>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                </section>
+                                <section>
+                                    <div class="content-block-title">Artikel</div>
+                                    <div class="content-block" style="margin-bottom: 0;">
+                                        <div class="content-block-inner">{{#markdown}}{{event.article}}{{/markdown}}
+                                            <br><i>{{event.author}}</i></div>
+                                    </div>
+                                </section>
+                                {{#if event.notice}}
+                                    <section>
+                                        <div class="content-block-title">Bemerkung</div>
+                                        <div class="content-block">
+                                            <div class="content-block-inner">{{#markdown}}{{event.notice}}{{/markdown}}</div>
+                                        </div>
+                                    </section>
+                                {{/if}}
+                                {{#if event.more_information}}
+                                    <section>
+                                        <div class="content-block-title">Weitere Informationen</div>
+                                        <div class="content-block">
+                                            <div class="content-block-inner">{{#markdown}}{{event.more_information}}{{/markdown}}</div>
+                                        </div>
+                                    </section>
+                                {{/if}}
+                                {{#if event.insider_name}}
+                                    <section>
+                                        <div class="content-block-title">Tippgeber</div>
+                                        <div class="content-block">
+                                            <div class="content-block-inner">{{event.insider_name}}</div>
+                                        </div>
+                                    </section>
+                                {{/if}}
+
+                                <section>
+                                    <div class="content-block-title">Ort</div>
+                                    <div class="content-block" style="margin-bottom: 0;">
+                                        <div class="content-block-inner">
+                                            <address>
+                                                {{event.vendor_name}}<br>
+                                                {{event.vendor_street}}<br>
+                                                {{event.vendor_city}}<br>
+                                            </address>
+                                        </div>
+                                    </div>
+                                    <div id="map" class="map"></div>
+                                </section>
+                            {{else}}
+                                Event wurde nicht gefunden.
+                                <a href="{{pathFor route='eventlist'}}" class="link">Zurück </a>
+                            {{/with}}
+                        {{else}}
+                            loading
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Toolbar-->
+            <div class="toolbar">
+                <div class="toolbar-inner">
+                    <!-- Toolbar links -->
+                    <a href="#" class="link">Link 1</a>
+                    <a href="#" class="link">Link 2</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+
+
+
