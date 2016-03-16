@@ -18,9 +18,6 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 standard-minifier-css
 standard-minifier-js
 
-
-cfs:graphicsmagick
-
 accounts-password
 jeeeyul:moment-with-langs
 perak:markdown
@@ -32,4 +29,3 @@ kadira:blaze-layout
 arillo:flow-router-helpers
 check
 
-###  delete
