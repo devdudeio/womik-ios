@@ -1,4 +1,35 @@
 <template name="eventlist">
+    <style>
+        .imageheader {
+            position: relative;
+            width: 100vw;
+        }
+
+        .imageheader .eventimage {
+            width: 100%;
+        }
+
+        .imageheader .headertext {
+            position: absolute;
+            top: 130px;
+            left: 0;
+        }
+
+        .imageheader .subheadertext {
+            position: absolute;
+            top: 160px;
+            left: 0;
+        }
+
+        .imageheader .headertext span, .imageheader .subheadertext span {
+            color: white;
+            letter-spacing: -1px;
+            background: rgb(0, 0, 0); /* fallback color */
+            background: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            margin-bottom: 0;
+        }
+    </style>
     <div class="statusbar-overlay"></div>
     <div class="views">
         <div class="view view-main">
@@ -11,9 +42,14 @@
                 <div data-page="index" class="page">
                     <div class="page-content">
                         {{#each event in events}}
-                            <a class="link" href="{{pathFor route='event' _id=event._id}}">
-                                <img class="eventcard"
-                                     src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
+                            <a class="" href="{{pathFor route='event' _id=event._id}}">
+                                <div class="imageheader">
+                                    <img class="eventimage"
+                                         src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
+                                    <h3 class="headertext animated fadeInLeft"><span>{{event.title}}</span></h3>
+                                    <h3 class="subheadertext animated fadeInLeft"><span>{{event.vendor}}</span>
+                                    </h3>
+                                </div>
                             </a>
                         {{/each}}
                     </div>
