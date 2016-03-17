@@ -1,6 +1,6 @@
 Template.eventlist.helpers({
     events: function () {
-        return Events.find();
+        return Events.find({hidden:false},{sort: {begin: -1}});
     }
 });
 
