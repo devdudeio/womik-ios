@@ -9,6 +9,12 @@
             width: 100%;
         }
 
+        .imageheader .datetext {
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+
         .imageheader .headertext {
             position: absolute;
             top: 130px;
@@ -21,7 +27,7 @@
             left: 0;
         }
 
-        .imageheader .headertext span, .imageheader .subheadertext span {
+        .imageheader .headertext span, .imageheader .subheadertext span, .imageheader .datetext span {
             color: white;
             letter-spacing: -1px;
             background: rgb(0, 0, 0); /* fallback color */
@@ -44,6 +50,7 @@
                         {{#each event in events}}
                             <a class="" href="{{pathFor route='event' _id=event._id}}">
                                 <div class="imageheader">
+                                    <h5 class="datetext animated fadeInRight"><span>{{eventlistDateFormat event.begin}}</span></h5>
                                     <img class="eventimage"
                                          src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
                                     <h3 class="headertext animated fadeInLeft"><span>{{event.title}}</span></h3>
