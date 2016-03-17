@@ -11,13 +11,10 @@
                 <div data-page="index" class="page">
                     <div class="page-content">
                         {{#each event in events}}
-                                <a class="link" href="{{pathFor route='event' _id=event._id}}">
-                                    <div class="card demo-card-header-pic">
-                                        <img valign="bottom"
-                                             class="card-header color-white no-border"
-                                             src="{{#with getImage event.image_id}}{{this.url store='thumbs'}}{{/with}}">
-                                    </div>
-                                </a>
+                            <a class="link" href="{{pathFor route='event' _id=event._id}}">
+                                <img class="eventcard"
+                                     src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
+                            </a>
                         {{/each}}
                     </div>
                 </div>
