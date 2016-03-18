@@ -1,5 +1,7 @@
 Template.eventlist.helpers({
     events: function () {
+
+        //TODO: find citys
         return Events.find({hidden: false}, {sort: {begin: 1}});
     }
 });
@@ -9,6 +11,8 @@ Template.eventlist.rendered = function () {
     var a = new Framework7();
 
 
+    //var cities = Events.find();
+
     var myPicker = a.picker({
         input: '#picker-text',
         rotateEffect: true,
@@ -17,7 +21,7 @@ Template.eventlist.rendered = function () {
             {
                 textAlign: 'center',
                 values: ['1', '2', '3'],
-                displayValues: ['Apple', 'Orange', 'Bananna']
+                displayValues: ['Dresden', 'Leipzig', 'Chemnitz']
             }
         ],
         onChange: function(p,v){

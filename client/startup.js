@@ -28,7 +28,7 @@ Meteor.startup(function () {
             Session.setDefault("device", device);
         }
     }
-
+    Meteor.subscribe('areas');
     Meteor.subscribe('events');
     Meteor.subscribe('images');
 });
