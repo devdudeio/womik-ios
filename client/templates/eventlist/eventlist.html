@@ -41,16 +41,18 @@
         <div class="view view-main">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <div class="center sliding">Awesome App</div>
+                    <div id="picker-text" class="center sliding">Deine Stadt <i class="fa fa-caret-down picker-icon"></i>
+                    </div>
                 </div>
             </div>
-            <div class="pages navbar-through toolbar-through">
+            <div class="pages navbar-through">
                 <div data-page="index" class="page">
                     <div class="page-content list-background">
                         {{#each event in events}}
                             <a class="" href="{{pathFor route='event' _id=event._id}}">
                                 <div class="imageheader">
-                                    <h5 class="datetext animated fadeIn"><span>{{eventlistDateFormat event.begin}}</span></h5>
+                                    <h5 class="datetext animated fadeIn">
+                                        <span>{{eventlistDateFormat event.begin}}</span></h5>
                                     <img class="eventimage"
                                          src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
                                     <h3 class="headertext animated fadeIn"><span>{{event.title}}</span></h3>

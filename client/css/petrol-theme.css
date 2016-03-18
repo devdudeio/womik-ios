@@ -15,3 +15,12 @@
 .list-background{
     background-color: #002c37;
 }
+
+.toolbar {
+    background-color: #005f69 !important;
+    color: #fff;
+}
+
+.picker-icon{
+    margin-left: 10px;
+}
