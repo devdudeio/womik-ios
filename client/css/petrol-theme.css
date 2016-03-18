@@ -1,0 +1,17 @@
+.navbar {
+    background-color: #005f69 !important;
+    color: #fff;
+}
+
+.left .link span, .right .link span {
+    color: #fff !important;
+}
+
+.a{
+    color: #fff!important;
+}
+
+
+.page-content{
+    background-color: #002c37;
+}

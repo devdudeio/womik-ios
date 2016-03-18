@@ -50,11 +50,11 @@
                         {{#each event in events}}
                             <a class="" href="{{pathFor route='event' _id=event._id}}">
                                 <div class="imageheader">
-                                    <h5 class="datetext animated fadeInRight"><span>{{eventlistDateFormat event.begin}}</span></h5>
+                                    <h5 class="datetext animated fadeIn"><span>{{eventlistDateFormat event.begin}}</span></h5>
                                     <img class="eventimage"
                                          src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
-                                    <h3 class="headertext animated fadeInLeft"><span>{{event.title}}</span></h3>
-                                    <h3 class="subheadertext animated fadeInLeft"><span>{{event.vendor}}</span>
+                                    <h3 class="headertext animated fadeIn"><span>{{event.title}}</span></h3>
+                                    <h3 class="subheadertext animated fadeIn"><span>{{event.vendor}}</span>
                                     </h3>
                                 </div>
                             </a>

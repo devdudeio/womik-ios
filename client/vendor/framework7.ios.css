@@ -1223,7 +1223,7 @@ html:not(.watch-active-state) .subnavbar a.link:active,
   top: auto;
   height: 1px;
   width: 100%;
-  background-color: #c4c4c4;
+  background-color: #006973;
   display: block;
   z-index: 15;
   -webkit-transform-origin: 50% 100%;

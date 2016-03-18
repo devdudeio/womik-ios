@@ -3,7 +3,7 @@ Meteor.startup(function () {
     BlazeLayout.setRoot('body');
 
     //layout
-    $('body').addClass('layout-default theme-green');
+    $('body').addClass('theme-white');
 
 
     //moment language
