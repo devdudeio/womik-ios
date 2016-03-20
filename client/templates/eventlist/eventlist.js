@@ -14,20 +14,6 @@ Template.eventlist.rendered = function () {
     var $$ = Dom7;
     var a = new Framework7();
 
-    Meteor.subscribe("areas");
-
-    let areas = Areas.find({}, {sort: {name: 1}});
-    let area_names = ['Alle Städte'];
-    let area_ids = [0];
-
-    areas.forEach(function (e) {
-        area_ids.push(e._id);
-        area_names.push(e.name);
-    });
-
-    Meteor.call("console", area_ids);
-    Meteor.call("console", area_names);
-
     var myPicker = a.picker({
         input: '#picker-text',
         rotateEffect: true,
@@ -35,32 +21,25 @@ Template.eventlist.rendered = function () {
         cols: [
             {
                 textAlign: 'center',
-                values: area_ids,
-                displayValues: area_names
+                values: [0, 'gKpCkBSpqs8PQzLKB', 'jfAR5hwsfZcnSfNGe', 'XebXvEt3Er8GjJoDb'],
+                displayValues: ['Alle Städte', 'Chemnitz', 'Dresden', 'Leipzig']
             }
         ],
         onChange: function (p, v) {
-            Session.set("orderByCityID", v);
+            Session.set("orderByCityID_temp", v);
         },
         onClose: function (p) {
-            //alert(Session.get("orderByCityID") + " itemstotal: " + Events.find().count());
+            Session.set("orderByCityID", Session.get("orderByCityID_temp"));
         }
     });
-
-
 };
 
 Template.eventlist.onCreated(function () {
     Session.setDefault("orderByCityID", 0);
-
-    //TODO template subscription ready stuff laterszzzZZZZz....r
 });
-
 
 Template.eventlist.events({
     'click .center .sliding': function () {
         Meteor.call("console", "click");
-
-
     }
 });
