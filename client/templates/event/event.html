@@ -48,9 +48,9 @@
                     <div class="center sliding">{{event.title}}</div>
                 </div>
             </div>
-            <div class="pages navbar-through toolbar-through">
+            <div class="pages navbar-through">
                 <div data-page="index" class="page">
-                    <div class="page-content">
+                    <div class="page-content list-background">
                         {{#if Template.subscriptionsReady}}
                             {{#with event}}
                                 {{#with getImage event.image_id}}
@@ -63,8 +63,11 @@
                                         </div>
                                     </section>
                                 {{else}}
-                                    bild nicht gefunden
-                                {{/with}}
+                                    <section>
+                                        <div class="imageheader">
+                                            <div class="eventimage"></div>
+                                        </div>
+                                    </section>                                {{/with}}
                                 <section>
                                     <div class="content-block-title">Wann</div>
                                     <div class="content-block" style="margin-bottom: 0;">
@@ -115,8 +118,8 @@
                                         <div class="content-block-inner">
                                             <address>
                                                 {{event.vendor_name}}<br>
-                                                {{event.vendor_street}}<br>
-                                                {{event.vendor_city}}<br>
+                                                {{event.vendor_street}} {{event.vendor_streetnr}}<br>
+                                                {{event.vendor_zipcode}} {{event.vendor_city}}<br>
                                             </address>
                                         </div>
                                     </div>
@@ -132,14 +135,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="#" class="link">Link 1</a>
-                    <a href="#" class="link">Link 2</a>
-                </div>
-            </div>
+
         </div>
     </div>
 </template>

@@ -7,12 +7,11 @@
     color: #fff !important;
 }
 
-.a{
-    color: #fff!important;
+.a {
+    color: #fff !important;
 }
 
-
-.list-background{
+.list-background {
     background-color: #002c37;
 }
 
@@ -21,6 +20,14 @@
     color: #fff;
 }
 
-.picker-icon{
+.picker-icon {
     margin-left: 10px;
+}
+
+.content-block-inner {
+    background-color: #005f69 !important;
+}
+
+.content-block-inner, .content-block-title{
+    color: #fff !important;
 }

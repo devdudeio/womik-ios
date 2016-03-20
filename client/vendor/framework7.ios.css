@@ -2173,7 +2173,7 @@ i.icon.icon-plus {
   right: auto;
   height: 1px;
   width: 100%;
-  background-color: #c8c7cc;
+  background-color: #005f69;
   display: block;
   z-index: 15;
   -webkit-transform-origin: 50% 0%;
@@ -2196,7 +2196,7 @@ html.pixel-ratio-3 .content-block-inner:before {
   top: auto;
   height: 1px;
   width: 100%;
-  background-color: #c8c7cc;
+  background-color: #005f69;
   display: block;
   z-index: 15;
   -webkit-transform-origin: 50% 100%;

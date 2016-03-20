@@ -17,17 +17,35 @@ Template.event.onCreated(function () {
     const instance = this;
     instance.subscribe("event", FlowRouter.current().params._id, {
         onReady: function () {
-            Meteor.call("console", "ready ;)");
+            let lon = 0;
+            let lat = 0;
+            let e = Events.findOne(FlowRouter.current().params._id);
 
-            drawMap = function () {
-                var map = L.map('map', {scrollWheelZoom: false, zoomControl: false}).setView([51.0474, 13.7384], 16);
-                L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-                    maxZoom: 18,
-                    detectRetina: true
-                }).addTo(map);
-            };
+            let requestURL = "http://nominatim.openstreetmap.org/search/de/" + e.vendor_city + "/" + e.vendor_street + "/" + e.vendor_streetnr + "?format=json&addressdetails=1";
+            console.log("calling: " + requestURL);
+            $.getJSON(requestURL, function (data) {
 
-            setTimeout(drawMap, 250);
+                lon = data[0].lon;
+                lat = data[0].lat;
+
+                drawMap = function () {
+                    L.Icon.Default.imagePath = '/images';
+                    var map = L.map('map', {
+                        scrollWheelZoom: false,
+                        zoomControl: false,
+                        attributionControl: false
+                    }).setView([lat, lon], 16);
+                    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+                        maxZoom: 18,
+                        detectRetina: true
+                    }).addTo(map);
+                    var marker = L.marker([lat, lon]).addTo(map);
+
+                };
+                setTimeout(drawMap, 500);
+
+            });
+
 
         }
     });
