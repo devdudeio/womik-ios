@@ -8,6 +8,9 @@ Template.eventlist.helpers({
             let city_id = Session.get("orderByCityID");
             return Events.find({areas: city_id}, {sort: {begin: 1}});
         }
+    },
+    selectedCity: function(){
+        return Session.get("selectedCity");
     }
 });
 Template.eventlist.rendered = function () {
@@ -25,17 +28,20 @@ Template.eventlist.rendered = function () {
                 displayValues: ['Alle Städte', 'Chemnitz', 'Dresden', 'Leipzig']
             }
         ],
-        onChange: function (p, v) {
+        onChange: function (p, v, d) {
             Session.set("orderByCityID_temp", v);
+            Session.set("selectedCity_temp", d[0]);
         },
         onClose: function (p) {
             Session.set("orderByCityID", Session.get("orderByCityID_temp"));
+            Session.set("selectedCity", Session.get("selectedCity_temp"));
         }
     });
 };
 
 Template.eventlist.onCreated(function () {
     Session.setDefault("orderByCityID", 0);
+    Session.setDefault("selectedCity", "Alle Städte");
 });
 
 Template.eventlist.events({
