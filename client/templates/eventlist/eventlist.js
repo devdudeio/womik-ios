@@ -2,16 +2,23 @@ Template.eventlist.helpers({
     events: function () {
 
         //TODO: find citys
-        return Events.find({hidden: false}, {sort: {begin: 1}});
+        if (Session.get("orderByCityID") == 0) {
+            return Events.find({hidden: false}, {sort: {begin: 1}});
+        } else {
+            let city_id = Session.get("orderByCityID");
+            return Events.find({areas: city_id}, {sort: {begin: 1}});
+        }
     }
 });
 Template.eventlist.rendered = function () {
     var $$ = Dom7;
     var a = new Framework7();
 
+    Meteor.subscribe("areas");
+
     let areas = Areas.find({}, {sort: {name: 1}});
-    let area_names = [];
-    let area_ids = [];
+    let area_names = ['Alle Städte'];
+    let area_ids = [0];
 
     areas.forEach(function (e) {
         area_ids.push(e._id);
@@ -28,15 +35,15 @@ Template.eventlist.rendered = function () {
         cols: [
             {
                 textAlign: 'center',
-                values: ['1', '2', '3'],
-                displayValues: ['Dresden', 'Leipzig', 'Chemnitz']
+                values: area_ids,
+                displayValues: area_names
             }
         ],
         onChange: function (p, v) {
             Session.set("orderByCityID", v);
         },
         onClose: function (p) {
-            alert(Session.get("orderByCityID") + " itemstotal: " + Events.find().count());
+            //alert(Session.get("orderByCityID") + " itemstotal: " + Events.find().count());
         }
     });
 
@@ -44,7 +51,7 @@ Template.eventlist.rendered = function () {
 };
 
 Template.eventlist.onCreated(function () {
-
+    Session.setDefault("orderByCityID", 0);
 
     //TODO template subscription ready stuff laterszzzZZZZz....r
 });
