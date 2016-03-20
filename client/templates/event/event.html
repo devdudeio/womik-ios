@@ -87,19 +87,25 @@
                                             <br><i>{{event.author}}</i></div>
                                     </div>
                                 </section>
+                                <section>
+                                    <div class="content-block-title">Weitere Informationen</div>
+                                    <div class="content-block">
+                                        {{#if event.fee}}
+                                            <div class="content-block-inner">{{event.fee}}</div>
+                                        {{/if}}
+                                        {{#if event.age}}
+                                            <div class="content-block-inner">{{event.age}}</div>
+                                        {{/if}}
+                                        {{#if event.more_information}}
+                                            <div class="content-block-inner js-open-browser">{{#markdown}}{{event.more_information}}{{/markdown}}</div>
+                                        {{/if}}
+                                        </div>
+                                </section>
                                 {{#if event.notice}}
                                     <section>
                                         <div class="content-block-title">Bemerkung</div>
                                         <div class="content-block">
                                             <div class="content-block-inner">{{#markdown}}{{event.notice}}{{/markdown}}</div>
-                                        </div>
-                                    </section>
-                                {{/if}}
-                                {{#if event.more_information}}
-                                    <section>
-                                        <div class="content-block-title">Weitere Informationen</div>
-                                        <div class="content-block">
-                                            <div class="content-block-inner">{{#markdown}}{{event.more_information}}{{/markdown}}</div>
                                         </div>
                                     </section>
                                 {{/if}}
@@ -116,7 +122,7 @@
                                     <div class="content-block-title">Ort</div>
                                     <div class="content-block" style="margin-bottom: 0;">
                                         <div class="content-block-inner">
-                                            <address>
+                                            <address class="js-open-maps">
                                                 {{event.vendor_name}}<br>
                                                 {{event.vendor_street}} {{event.vendor_streetnr}}<br>
                                                 {{event.vendor_zipcode}} {{event.vendor_city}}<br>

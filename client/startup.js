@@ -31,4 +31,11 @@ Meteor.startup(function () {
     Meteor.subscribe('areas');
     Meteor.subscribe('events');
     Meteor.subscribe('images');
+
+    //Dead geolocation to ask user to enable geo
+    var onSuccess = function(position) {
+    };
+    function onError(error) {
+    }
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
 });

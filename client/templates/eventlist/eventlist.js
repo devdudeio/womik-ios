@@ -35,6 +35,7 @@ Template.eventlist.rendered = function () {
         onClose: function (p) {
             Session.set("orderByCityID", Session.get("orderByCityID_temp"));
             Session.set("selectedCity", Session.get("selectedCity_temp"));
+
         }
     });
 };

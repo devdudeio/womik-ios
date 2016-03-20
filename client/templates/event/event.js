@@ -4,7 +4,24 @@ Template.event.rendered = function () {
 
 };
 
-Template.event.events({});
+Template.event.events({
+    'click .js-open-browser': function (e) {
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            window.open = cordova.InAppBrowser.open($(e.target).attr('href'), "_system");
+        }
+    },
+    'click .js-open-maps': function () {
+        launchnavigator.navigate(
+            [Session.get("lat"), Session.get("lon")],null,
+            function () {
+                //alert("Plugin success");
+            },
+            function (error) {
+                //alert("Plugin error: " + error);
+            });
+    }
+});
 
 Template.event.helpers({
     event: function () {
@@ -14,6 +31,8 @@ Template.event.helpers({
 
 
 Template.event.onCreated(function () {
+    Session.setDefault("lon", 0);
+    Session.setDefault("lat", 0);
     const instance = this;
     instance.subscribe("event", FlowRouter.current().params._id, {
         onReady: function () {
@@ -27,7 +46,8 @@ Template.event.onCreated(function () {
 
                 lon = data[0].lon;
                 lat = data[0].lat;
-
+                Session.set("lon", lon);
+                Session.set("lat", lat);
                 drawMap = function () {
                     L.Icon.Default.imagePath = '/images';
                     var map = L.map('map', {
