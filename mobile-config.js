@@ -1,8 +1,7 @@
-App.accessRule('*');  // TODO restrict later
+
 
 
 //set color to petrol
-App.setPreference('StatusBarBackgroundColor', '#006973');
 /*
  'iphone': '60x60',
  'iphone_2x': '120x120',
@@ -56,3 +55,7 @@ App.launchScreens({
     'iphone6p_landscape': 'assets/splash/splash-6p_landscape.png'
 
 });
+
+
+App.accessRule('*');  // TODO restrict later
+App.setPreference('StatusBarBackgroundColor', '#006973');
