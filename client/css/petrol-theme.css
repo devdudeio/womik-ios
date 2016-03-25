@@ -11,8 +11,8 @@
     color: #fff !important;
 }
 
-.list-background {
-    background-color: #002c37;
+.list-background,.login-screen-content {
+    background-color: #002c37!important;
 }
 
 .toolbar {

@@ -36,12 +36,17 @@
             margin-bottom: 0;
         }
     </style>
-    <div class="statusbar-overlay"></div>
     <div class="views">
         <div class="view view-main">
             <div class="navbar">
                 <div class="navbar-inner">
-                    <div id="picker-text" class="center sliding">{{selectedCity}} <i class="fa fa-caret-down picker-icon"></i>
+                    <div id="picker-text" class="center sliding">{{selectedCity}} <i
+                            class="fa fa-caret-down picker-icon"></i>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="link icon-only open-login needsclick">
+                            <i class="icon fa fa-info needsclick"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -61,6 +66,45 @@
                                 </div>
                             </a>
                         {{/each}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login-screen" style="background: rgba(0,0,0,0);">
+        <!-- Default view-page layout -->
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left" style="visibility: hidden;">
+                    <a href="#" class="link">
+                        <i class="icon icon-bars"></i>
+                    </a>
+                </div>
+                <div class="center" style="margin: 0 auto;">Tipp einsenden</div>
+                <div class="right">
+                    <a href="#" class="link icon-only close-login-screen needsclick">
+                        <i class="icon fa fa-close needsclick"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="view">
+
+            <div class="page">
+                <div class="page-content login-screen-content list-background">
+                    <div class="content-block">
+                        <div class="content-block-inner">
+                            <h3>Liebe Eltern,</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aspernatur, consectetur
+                                consequatur cumque dolores et fuga illo minima minus molestias officiis repellendus,
+                                saepe unde. Beatae expedita ipsam nemo placeat voluptate.</p>
+                            <i>Die Redaktion</i>
+                            <br><br><br>
+                            <div class="button button-big button-fill color-green js-add-tipp needsclick">Tipp
+                                einschicken
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,9 @@ Template.eventlist.helpers({
 Template.eventlist.rendered = function () {
     var $$ = Dom7;
     var a = new Framework7();
-
+    $$('.open-login').on('click', function () {
+        a.loginScreen();
+    });
     var myPicker = a.picker({
         input: '#picker-text',
         rotateEffect: true,
@@ -48,5 +50,11 @@ Template.eventlist.onCreated(function () {
 Template.eventlist.events({
     'click .center .sliding': function () {
         Meteor.call("console", "click");
+    },
+    'click .js-add-tipp': function(){
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady() {
+            window.open = cordova.InAppBrowser.open("mailto:redaktion@womik.de?subject=Neuer Geheimtipp", "_system");
+        }
     }
 });
