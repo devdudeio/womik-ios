@@ -34,7 +34,7 @@ App.info({
     author: 'Robert Lech',
     email: 'robert.lech@icloud.com',
     website: 'http://womik.de',
-    version: '50'
+    version: '52'
 });
 
 App.icons({
