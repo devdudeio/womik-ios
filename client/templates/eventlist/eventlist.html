@@ -17,15 +17,11 @@
 
         .imageheader .headertext {
             position: absolute;
-            top: 130px;
+            top: 40%;
             left: 0;
+            line-height: 30px;
         }
 
-        .imageheader .subheadertext {
-            position: absolute;
-            top: 160px;
-            left: 0;
-        }
 
         .imageheader .headertext span, .imageheader .subheadertext span, .imageheader .datetext span {
             color: white;
@@ -54,17 +50,17 @@
                 <div data-page="index" class="page">
                     <div class="page-content list-background">
                         {{#each event in events}}
-                            <a class="" href="{{pathFor route='event' _id=event._id}}">
-                                <div class="imageheader">
-                                    <h5 class="datetext animated fadeIn">
-                                        <span>{{eventlistDateFormat event.begin}}</span></h5>
-                                    <img class="eventimage"
-                                         src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
-                                    <h3 class="headertext animated fadeIn"><span>{{event.title}}</span></h3>
-                                    <h3 class="subheadertext animated fadeIn"><span>{{event.vendor}}</span>
-                                    </h3>
-                                </div>
-                            </a>
+                            {{#if isDisplayedInApp event.begin}}
+                                <a class="" href="{{pathFor route='event' _id=event._id}}">
+                                    <div class="imageheader">
+                                        <h5 class="datetext animated fadeIn">
+                                            <span>{{eventlistDateFormat event.begin}}</span></h5>
+                                        <img class="eventimage"
+                                             src="{{#with getImage event.image_id}}{{this.url store='default'}}{{/with}}">
+                                        <h3 class="headertext animated fadeIn"><span>{{event.title}}&nbsp;&nbsp;<br>&nbsp;&nbsp;{{event.vendor}}</span></h3>
+                                    </div>
+                                </a>
+                            {{/if}}
                         {{/each}}
                     </div>
 
@@ -97,7 +93,8 @@
                         <div class="content-block-inner">
                             <h3>Liebe Eltern,</h3>
                             <p>womik lebt von euren Ideen!<br>
-                                Sende uns deine besten Tipps und wir teilen sie mit allen Eltern. Schick uns einfach den Link der Veranstaltung oder schreib sogar deine ganz eigene Story.
+                                Sende uns deine besten Tipps und wir teilen sie mit allen Eltern. Schick uns einfach den
+                                Link der Veranstaltung oder schreib sogar deine ganz eigene Story.
                                 Von Eltern – für Eltern. Und aus einer Idee werden tausend Neue!<br>
                                 <br>
                                 Besten Dank vorab wünscht dein womik-Team</p>

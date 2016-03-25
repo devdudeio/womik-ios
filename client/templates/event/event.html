@@ -10,15 +10,12 @@
 
         .imageheader .headertext {
             position: absolute;
-            top: 130px;
+            top: 40%;
             left: 0;
+            line-height: 40px;
         }
 
-        .imageheader .subheadertext {
-            position: absolute;
-            top: 170px;
-            left: 0;
-        }
+
 
         .imageheader .headertext span, .imageheader .subheadertext span {
             color: white;
@@ -57,9 +54,7 @@
                                     <section>
                                         <div class="imageheader">
                                             <img class="eventimage animated fadeIn" src="{{this.url store='default'}}">
-                                            <h3 class="headertext animated fadeInLeft"><span>{{event.title}}</span></h3>
-                                            <h3 class="subheadertext animated fadeInLeft"><span>{{event.vendor}}</span>
-                                            </h3>
+                                            <h3 class="headertext animated fadeInLeft"><span>{{event.title}}&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;{{event.vendor}}</span></h3>
                                         </div>
                                     </section>
                                 {{else}}

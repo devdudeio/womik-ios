@@ -9,8 +9,17 @@ Template.eventlist.helpers({
             return Events.find({areas: city_id}, {sort: {begin: 1}});
         }
     },
-    selectedCity: function(){
+    selectedCity: function () {
         return Session.get("selectedCity");
+    },
+    isDisplayedInApp: function (begin) {
+        max_diff = 13;
+        const diff = moment().diff(begin, 'days');
+        if (diff >= -max_diff && diff <= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 });
 Template.eventlist.rendered = function () {
@@ -51,7 +60,7 @@ Template.eventlist.events({
     'click .center .sliding': function () {
         Meteor.call("console", "click");
     },
-    'click .js-add-tipp': function(){
+    'click .js-add-tipp': function () {
         document.addEventListener("deviceready", onDeviceReady, false);
         function onDeviceReady() {
             window.open = cordova.InAppBrowser.open("mailto:redaktion@womik.de?subject=Neuer Geheimtipp", "_system");
