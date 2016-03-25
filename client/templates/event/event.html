@@ -67,7 +67,29 @@
                                         <div class="imageheader">
                                             <div class="eventimage"></div>
                                         </div>
-                                    </section>                                {{/with}}
+                                    </section>
+                                {{/with}}
+                                <section>
+                                    <div class="content-block" style="margin-bottom: 0;">
+                                        <div class="content-block-inner">
+                                            <div class="row">
+                                                <!-- Each "cell" has col-[widht in percents] class -->
+                                                <div class="col-50">
+                                                    <div class="button button-big button-fill color-green js-open-maps">
+                                                        Route
+                                                    </div>
+                                                </div>
+                                                <div class="col-50">
+                                                    <a href="{{event.more_information}}"
+                                                       class="button button-big button-fill color-green js-open-browser">Website</a>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </section>
                                 <section>
                                     <div class="content-block-title">Wann</div>
                                     <div class="content-block" style="margin-bottom: 0;">
@@ -96,10 +118,7 @@
                                         {{#if event.age}}
                                             <div class="content-block-inner">{{event.age}}</div>
                                         {{/if}}
-                                        {{#if event.more_information}}
-                                            <div class="content-block-inner js-open-browser">{{#markdown}}{{event.more_information}}{{/markdown}}</div>
-                                        {{/if}}
-                                        </div>
+                                    </div>
                                 </section>
                                 {{#if event.notice}}
                                     <section>
